@@ -35,7 +35,7 @@ class Product(models.Model):
 
 	# Foreign Keys
 	brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-	category = TreeForeignKey(Category, null=True, blank=True ,on_delete=models.CASCADE, related_name='products'),
+	category = TreeForeignKey(Category, null=True, blank=True ,on_delete=models.SET_NULL, related_name='products'),
 
 
 
