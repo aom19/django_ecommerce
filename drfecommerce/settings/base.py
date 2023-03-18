@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     #external apps
     'rest_framework',
     'mptt',
+    'drf_spectacular',
+
     #local apps
     'drfecommerce.product',
 
@@ -109,4 +111,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'DRF Ecommerce API',
+    'DESCRIPTION': 'A simple ecommerce API',
+    'VERSION': '1.0.0',
 }
