@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #external apps
     'rest_framework',
-
+    'mptt',
     #local apps
     'drfecommerce.product',
 
