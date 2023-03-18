@@ -5,6 +5,8 @@
 #manually added
 commands.md
 schema.yml
+.coverage
+htmlcov/
 
 .idea/
 venv
