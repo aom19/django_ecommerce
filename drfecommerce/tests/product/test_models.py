@@ -19,10 +19,13 @@ class TestCategoryModel:
 
 
 class TestBrandModel:
-	def test_str_method(self):
-		pass
+	def test_str_method(self,brand_factory):
+		x =brand_factory()
+		assert x.__str__() == x.name
+
 
 
 class TestProductModel:
-	def test_str_method(self):
-		pass
+	def test_str_method(self,product_factory):
+		x = product_factory()
+		assert x.__str__() == x.name
