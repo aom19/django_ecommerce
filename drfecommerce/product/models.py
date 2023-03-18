@@ -26,6 +26,7 @@ class Brand(models.Model):
 	def __str__(self):
 		return self.name
 
+
 class Product(models.Model):
 	name = models.CharField(max_length=100)
 	description = models.TextField(null=True, blank=True)
@@ -35,7 +36,8 @@ class Product(models.Model):
 
 	# Foreign Keys
 	brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-	category = TreeForeignKey(Category, null=True, blank=True ,on_delete=models.CASCADE, related_name='products'),
+	category = TreeForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
+
 
 
 
