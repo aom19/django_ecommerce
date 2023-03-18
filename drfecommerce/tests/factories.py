@@ -29,8 +29,7 @@ class ProductFactory(factory.django.DjangoModelFactory):
 	name = factory.Faker('name')
 	description = factory.Faker('text')
 	is_digital = factory.Faker('boolean')
-	price = factory.Faker('pydecimal', left_digits=5, right_digits=2, positive=True, min_value=0, max_value=10000)
-
+	price = factory.Faker('pydecimal', left_digits=3, right_digits=2, positive=True, min_value=10, max_value=100)
 	created_at = factory.Faker('date_time')
 	brand = factory.SubFactory(BrandFactory)
 	category = factory.SubFactory(CategoryFactory)
