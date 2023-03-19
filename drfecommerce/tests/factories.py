@@ -1,14 +1,16 @@
 import factory
-
+from factory.django import DjangoModelFactory
 from drfecommerce.product.models import Product, Category, Brand
 
-class CategoryFactory(factory.django.DjangoModelFactory):
+class CategoryFactory(DjangoModelFactory):
 	class Meta:
 		model = Category
 
-	name = factory.Faker('name')
-	description = factory.Faker('text')
+
+	name = factory.Faker('word')
+	description = factory.Faker('sentence')
 	created_at = factory.Faker('date_time')
+	parent=  factory.SubFactory('drfecommerce.tests.factories.CategoryFactory', parent=None)
 
 
 

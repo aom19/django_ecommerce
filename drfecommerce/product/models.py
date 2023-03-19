@@ -3,7 +3,8 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 
 class Category(MPTTModel):
-	parent = TreeForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, related_name='children')
+	parent = TreeForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, related_name='children' ,
+	                        unique=True)
 	name = models.CharField(max_length=100)
 	description = models.TextField(null=True, blank=True)
 	created_at = models.DateTimeField(auto_now_add=True)
@@ -13,6 +14,12 @@ class Category(MPTTModel):
 
 	def __str__(self):
 		return self.name
+
+
+
+	def get_parent(self):
+		return self.parent
+
 
 
 
