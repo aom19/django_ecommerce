@@ -22,3 +22,8 @@ python3 manage.py spectacular --file schema.yml
 coverage run -m pytest
 ```
 
+## Check Test Status
+```bash
+pytest --cov
+```
+
