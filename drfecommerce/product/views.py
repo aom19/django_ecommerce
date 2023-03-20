@@ -12,13 +12,36 @@ from .models import Product, Category, Brand
 from .serializers import ProductSerializer, CategorySerializer, BrandSerializer
 
 
-class BrandViewSet(viewsets.ViewSet):
-	queryset = Brand.objects.all()
-
-	@extend_schema(responses=BrandSerializer)
-	def list(self, request):
-		serializer = BrandSerializer(self.queryset, many=True)
+class BrandList(APIView):
+	def get(self, request):
+		brands = Brand.objects.all()
+		serializer = BrandSerializer(brands, many=True)
 		return Response(serializer.data)
+
+	def post(self, request):
+		serializer = BrandSerializer(data=request.data)
+		if serializer.is_valid():
+			serializer.save()
+		return Response(serializer.data)
+
+
+class BrandDetail(APIView):
+	def get_object(self, pk):
+		try:
+			return Brand.objects.get(pk=pk)
+		except Brand.DoesNotExist:
+			return Response(status=status.HTTP_404_NOT_FOUND)
+
+	def get(self, request, pk):
+		brand = self.get_object(pk)
+		serializer = BrandSerializer(brand)
+		return Response(serializer.data)
+
+
+
+
+
+
 
 
 class CategoryList(APIView):
