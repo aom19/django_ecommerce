@@ -1,4 +1,4 @@
-FROM python:3.9.6
+FROM python:3.10
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ COPY . /app
 
 RUN pip install --trusted-host pypi.python.org -r req.txt
 
-COPY db.sqlite3 /app/
+COPY /drfecommerce/db.sqlite3 /app/
 
 
 EXPOSE 8000
