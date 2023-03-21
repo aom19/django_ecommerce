@@ -26,4 +26,24 @@ coverage run -m pytest
 ```bash
 pytest --cov
 ```
+## Create Docker Image
+```bash
+docker build -t drfecommerce
+```
+
+## RUN Docker Image
+```bash
+docker run -p 8000:8000 drfecommerce
+```
+
+## Create Docker Container
+```bash
+docker-compose build
+```
+
+
+## Run Docker Compose
+```bash
+docker-compose up
+```
 
